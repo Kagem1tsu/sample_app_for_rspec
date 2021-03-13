@@ -34,4 +34,4 @@
 /config/master.key
 
 # Ignore vendor
-/vendor
+/vendor/bundle
