@@ -1,6 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'factory_bot_rails'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -64,10 +63,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
-
-  [:controller, :view, :request].each do |type|
-    config.include ::Rails::Controller::Testing::TestProcess, :type => type
-    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
-    config.include ::Rails::Controller::Testing::Integration, :type => type
-  end
+  config.include LoginMacros
 end
